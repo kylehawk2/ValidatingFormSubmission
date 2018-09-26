@@ -10,6 +10,7 @@ namespace ValidatingFormSubmission.Controllers
 {
     public class HomeController : Controller
     {
+        [HttpGet("")]
         public IActionResult Index()
         {
             return View();
@@ -19,7 +20,7 @@ namespace ValidatingFormSubmission.Controllers
         {
             if(ModelState.IsValid)
             {
-                return Json(newUser);
+                return View("Results", newUser);
             }
             return View("Index");
         }
